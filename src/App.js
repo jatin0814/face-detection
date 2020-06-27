@@ -3,7 +3,7 @@ import Navigation from './components/Nevigation/Nevigation.js';
 import Logo from './components/Logo/Logo.js';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm.js';
 import SignIn from './components/signIn/signIn.js';
-import Register from './components/Register/register.js';
+ import Register from './components/Register/register.js';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition.js';
 import Rank from './components/Rank/Rank.js';
 import Particles from 'react-particles-js';
@@ -39,10 +39,20 @@ class App extends React.Component {
       }
     }
 
+
+   /* componentDidMount(){
+      fetch('http://localhost:3030/')
+        .then(response=>response.json())
+        .then(console.log)
+    }*/
+
+
     onInputChange=(event)=>{
         this.setState({input: event.target.value});
         //console.log(this.state.input)
     }
+
+
 
     faceLocation = (data) =>{
       console.log(data);
