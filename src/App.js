@@ -27,10 +27,7 @@ const particlesOptions = {
   }
 }
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
+const initialState = {
       input: '',
       imageUrl: '',
       box: {},
@@ -44,6 +41,11 @@ class App extends Component {
         joined: ''
       }
     }
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state =initialState;
   }
 
   loadUser = (data) => {
@@ -87,7 +89,7 @@ class App extends Component {
         this.state.input)
       .then(response => {
         if (response) {
-          fetch('http://localhost:3030/image', {
+          fetch('https://stark-beach-56351.herokuapp.com/image', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -107,7 +109,7 @@ class App extends Component {
 
   onRouteChange = (route) => {
     if (route === 'signout') {
-      this.setState({isSignedIn: false})
+      this.setState(initialState)
     } else if (route === 'home') {
       this.setState({isSignedIn: true})
     }
